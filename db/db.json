@@ -1,11 +1,24 @@
 {
-  "users": [
-    {
+  "users": [{
       "id": 1,
       "fName": "Bone",
       "lName": "Jevin",
       "email": "kekW@gmail.com",
-      "password": "uwuwuwu"
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "fName": "Bon",
+      "lName": "Kevin",
+      "email": "kek1@gmail.com",
+      "password": "qwe"
+    },
+    {
+      "id": 1,
+      "fName": "one",
+      "lName": "evin",
+      "email": "kek@gmail.com",
+      "password": "asd"
     }
   ]
 }

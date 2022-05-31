@@ -3,3 +3,15 @@
   align-items: center;
   justify-content: center;
 }
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5em auto;
+}
+
+.signup-container {
+  max-width: 50%;
+  margin: 5em auto;
+}
