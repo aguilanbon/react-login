@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 
 
-function Login() {
+function Login({setLoggedInUser}) {
 
     const [userEmail, setUserEmail] = useState('')
     const [userPassword, setUserPassword] = useState('')
@@ -25,7 +25,7 @@ function Login() {
            if(found.password === password) {
                console.log('pass');
                setError('')
-               navigate('/home')
+               setLoggedInUser(true)
            } else {
                 setError('Email or Password incorrect')
                 setUserEmail('')
@@ -62,11 +62,7 @@ function Login() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" onChange={e => setUserPassword(e.target.value)} value={userPassword}></input>
-                </div>
-                <div className="mb-3 form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1"></input>
-                    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+                    <input type="password" className="form-control" id="exampleInputPassword1" onChange={e => setUserPassword(e.target.value)} value={userPassword} autoComplete="false"></input>
                 </div>
                 <button type="submit" className="btn btn-primary">Log In</button>
                 <div className="mb-3" style={toSignUp}>

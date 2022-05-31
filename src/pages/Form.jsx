@@ -2,15 +2,12 @@ import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Login from '../components/Login'
 import Signup from '../components/Signup'
-import Home from './Home'
-
-function Form() {
+function Form({ setLoggedInUser}) {
 
     return (
         <div className='login-container'>
             <Routes>
-                <Route path='/' element={<Login />}></Route>
-                <Route path='/home' element={<Home />}></Route>
+                <Route path='/' element={<Login setLoggedInUser={setLoggedInUser}/>}></Route>
                 <Route path='/user/signup' element={<Signup />}></Route>
             </Routes>
         </div>
