@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
-function Login({setLoggedInUser}) {
+function Login({setIsloggedIn, setCurrentUser}) {
 
     const [userEmail, setUserEmail] = useState('')
     const [userPassword, setUserPassword] = useState('')
     const [users, setUsers] = useState([])
     const [error, setError] = useState('')
-
-    const navigate = useNavigate()
 
     const fetchUsers = async () => {
         const response = await fetch('http://localhost:3001/users')
@@ -25,7 +23,8 @@ function Login({setLoggedInUser}) {
            if(found.password === password) {
                console.log('pass');
                setError('')
-               setLoggedInUser(true)
+               setIsloggedIn(true)
+               setCurrentUser(found)
            } else {
                 setError('Email or Password incorrect')
                 setUserEmail('')

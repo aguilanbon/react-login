@@ -6,13 +6,14 @@ import Home from './pages/Home';
 
 function App() {
 
-  const [loggedInUser, setLoggedInUser] = useState(false)
+  const [isLoggedIn, setIsloggedIn] = useState(false)
+  const [currentUser, setCurrentUser] = useState({})
 
   return (
     <div className="App">
       <BrowserRouter>
-        {loggedInUser === false ? <Form  setLoggedInUser={setLoggedInUser}/> : ''}
-        {loggedInUser === true ? <Home /> : ''}
+        {isLoggedIn === false ? <Form  setIsloggedIn={setIsloggedIn} setCurrentUser={setCurrentUser}/> : ''}
+        {isLoggedIn === true ? <Home currentUser={currentUser} /> : ''}
       </BrowserRouter>
     </div>
   );
