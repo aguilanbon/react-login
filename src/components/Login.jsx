@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
+
 
 function Login() {
   return (
@@ -18,6 +21,9 @@ function Login() {
                 <label className="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
+            <div className="mb-3">
+                <footer>Not Signed Up yet? <Link to='/user/signup' >Click Here</Link></footer>
+            </div>
         </form>
     </div>
   )

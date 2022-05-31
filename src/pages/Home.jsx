@@ -1,10 +1,9 @@
 import React from 'react'
-import Login from '../components/Login'
 
 function Home() {
   return (
     <div className='home-container'>
-        <Login />
+        <h1>Welcome</h1>
     </div>
   )
 }
