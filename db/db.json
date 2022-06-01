@@ -27,6 +27,20 @@
       "email": "aguilan@gmail.com",
       "password": "123",
       "id": 3
+    },
+    {
+      "fName": "ella",
+      "lName": "alolor",
+      "email": "ella@gmail.com",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "fName": "ella",
+      "lName": "may",
+      "email": "may@gmail.com",
+      "password": "123",
+      "id": 5
     }
   ]
 }

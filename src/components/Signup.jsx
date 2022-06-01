@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 
 function Signup() {
 
@@ -6,6 +8,7 @@ function Signup() {
   const [lName, setLName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [userSignupSuccess, setUserSignupSuccess] = useState(false)
 
   const postUser = () => {
     const userSignup = {fName, lName, email, password}
@@ -15,10 +18,17 @@ function Signup() {
       headers: {'Content-type' : 'application/json'},
       body: JSON.stringify(userSignup)
     })
+
+    setUserSignupSuccess(true)
   }
 
   return (
     <div className='signup-container'>
+      {userSignupSuccess ?
+        <div className="col-mb-12 signup-success">
+          <p>Success! You may now <Link to='/'>Log in</Link> </p>
+        </div>
+        :
         <form className="row g-3 needs-validation" onSubmit={(e) => {
           e.preventDefault()
           postUser()
@@ -55,6 +65,7 @@ function Signup() {
                 <button className="btn btn-primary" type="submit">Sign Up</button>
             </div>
         </form>
+      }
     </div>
   )
 }
