@@ -1,5 +1,6 @@
 {
-  "users": [{
+  "users": [
+    {
       "id": 1,
       "fName": "Bone",
       "lName": "Jevin",
@@ -19,6 +20,13 @@
       "lName": "evin",
       "email": "kek@gmail.com",
       "password": "asd"
+    },
+    {
+      "fName": "Bon",
+      "lName": "Aguilan",
+      "email": "aguilan@gmail.com",
+      "password": "123",
+      "id": 3
     }
   ]
 }
