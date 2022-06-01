@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom'
 
 
 
-function Login({setIsloggedIn, setCurrentUser}) {
+function Login({setIsloggedIn, setCurrentUser, userEmail, setUserEmail, userPassword, setUserPassword}) {
 
-    const [userEmail, setUserEmail] = useState('')
-    const [userPassword, setUserPassword] = useState('')
     const [users, setUsers] = useState([])
     const [error, setError] = useState('')
 
@@ -54,7 +52,7 @@ function Login({setIsloggedIn, setCurrentUser}) {
                 e.preventDefault()
                 submitHandler()}}>
                 <div className="mb-3">
-                    {error ? <p style={errorStyle}>{error}</p> : ''}
+                    {error ? <p style={errorStyle} className="bg-danger text-white">{error}</p> : ''}
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={e => setUserEmail(e.target.value)} value={userEmail}></input>
                 <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
@@ -78,7 +76,8 @@ const toSignUp = {
 }
 
 const errorStyle = {
-    color: 'red'
+    padding: '1em',
+    borderRadius: '.5em'
 }
 
 export default Login

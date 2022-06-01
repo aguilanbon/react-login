@@ -12,6 +12,31 @@
 }
 
 .signup-container {
-  max-width: 50%;
   margin: 5em auto;
+}
+
+.signup-success {
+  display: flex;
+  min-width: 100%;
+  margin: 0 auto;
+  background-color: #5cb85c;
+  padding: 2.5em 5em;
+  border-radius: .5em;
+}
+
+.signup-success p {
+  min-width: 100%;
+  color: white;
+}
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8em auto;
+  flex-direction: column;
+}
+
+.home-container button {
+  margin: 2em;
 }

@@ -8,12 +8,14 @@ function App() {
 
   const [isLoggedIn, setIsloggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
+  const [userEmail, setUserEmail] = useState('')
+  const [userPassword, setUserPassword] = useState('')
 
   return (
     <div className="App">
       <BrowserRouter>
-        {isLoggedIn === false ? <Form  setIsloggedIn={setIsloggedIn} setCurrentUser={setCurrentUser}/> : ''}
-        {isLoggedIn === true ? <Home currentUser={currentUser} /> : ''}
+        {isLoggedIn === false ? <Form  setIsloggedIn={setIsloggedIn} setCurrentUser={setCurrentUser} userEmail={userEmail} setUserEmail={setUserEmail} userPassword={userPassword} setUserPassword={setUserPassword} /> : ''}
+        {isLoggedIn === true ? <Home currentUser={currentUser} setUserEmail={setUserEmail} setUserPassword={setUserPassword} setIsloggedIn={setIsloggedIn}/> : ''}
       </BrowserRouter>
     </div>
   );
