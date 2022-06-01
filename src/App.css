@@ -28,3 +28,15 @@
   min-width: 100%;
   color: white;
 }
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8em auto;
+  flex-direction: column;
+}
+
+.home-container button {
+  margin: 2em;
+}

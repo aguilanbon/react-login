@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom'
 
 
 
-function Login({setIsloggedIn, setCurrentUser}) {
+function Login({setIsloggedIn, setCurrentUser, userEmail, setUserEmail, userPassword, setUserPassword}) {
 
-    const [userEmail, setUserEmail] = useState('')
-    const [userPassword, setUserPassword] = useState('')
     const [users, setUsers] = useState([])
     const [error, setError] = useState('')
 
