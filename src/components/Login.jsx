@@ -19,7 +19,6 @@ function Login({setIsloggedIn, setCurrentUser, userEmail, setUserEmail, userPass
 
        if(found) {
            if(found.password === password) {
-               console.log('pass');
                setError('')
                setIsloggedIn(true)
                setCurrentUser(found)

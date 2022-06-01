@@ -9,17 +9,39 @@ function Signup() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [userSignupSuccess, setUserSignupSuccess] = useState(false)
+  const [signUpError, setSignUpError] = useState('')
 
   const postUser = () => {
     const userSignup = {fName, lName, email, password}
 
-    fetch('http://localhost:3001/users', {
+    if(fName === '' || lName === '' || email === '' || password === '') {
+      setSignUpError('Please complete form')
+    } else {
+      fetch('http://localhost:3001/users', {
       method: 'POST',
       headers: {'Content-type' : 'application/json'},
       body: JSON.stringify(userSignup)
     })
+      setUserSignupSuccess(true)
+    }
+    
+    (() => {
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
 
-    setUserSignupSuccess(true)
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
   }
 
   return (
@@ -30,6 +52,7 @@ function Signup() {
         </div>
         :
         <div style={{maxWidth: '40%', margin: '0 auto'}}>
+          {signUpError ? <p style={{padding: '1em', borderRadius: '.5em'}} className="bg-danger text-white">{signUpError}</p> : ''}
         <form className="row g-3 needs-validation" onSubmit={(e) => {
           e.preventDefault()
           postUser()
@@ -60,7 +83,7 @@ function Signup() {
             </div>
             <div className="col-mb-3">
                     <label htmlFor="validationCustomPassword" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword" onChange={e => setPassword(e.target.value)} value={password} autoComplete="false"></input>
+                    <input type="password" className="form-control" id="exampleInputPassword" onChange={e => setPassword(e.target.value)} value={password} autoComplete="false" required></input>
             </div>
             <div className="col-12">
                 <button className="btn btn-primary" type="submit">Sign Up</button>
@@ -72,23 +95,6 @@ function Signup() {
   )
 }
 
-
-(() => {
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
 
 
 export default Signup
