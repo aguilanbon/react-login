@@ -29,6 +29,7 @@ function Signup() {
           <p>Success! You may now <Link to='/'>Log in</Link> </p>
         </div>
         :
+        <div style={{maxWidth: '40%', margin: '0 auto'}}>
         <form className="row g-3 needs-validation" onSubmit={(e) => {
           e.preventDefault()
           postUser()
@@ -65,6 +66,7 @@ function Signup() {
                 <button className="btn btn-primary" type="submit">Sign Up</button>
             </div>
         </form>
+        </div>
       }
     </div>
   )
