@@ -13,10 +13,19 @@ function Signup() {
 
   const postUser = () => {
     const userSignup = {fName, lName, email, password}
+    let re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/
+    let em = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
     if(fName === '' || lName === '' || email === '' || password === '') {
       setSignUpError('Please complete form')
-    } else {
+    }
+    if(!em.test(email)) {
+      setSignUpError('Invalid email')
+    }
+    if(!re.test(password)) {
+      setSignUpError('Password must contain atleat 1 Uppercase, Number and must be 6 characters long')
+    }
+    else if (fName && lName && em.test(email) && re.test(password)){
       fetch('http://localhost:3001/users', {
       method: 'POST',
       headers: {'Content-type' : 'application/json'},
@@ -24,24 +33,6 @@ function Signup() {
     })
       setUserSignupSuccess(true)
     }
-    
-    (() => {
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
-
   }
 
   return (
@@ -60,25 +51,16 @@ function Signup() {
             <div className="col-mb-3">
                 <label htmlFor="validationCustom01" className="form-label">First name</label>
                 <input type="text" className="form-control" id="validationCustom01" onChange={e => setFName(e.target.value)} value={fName} required></input>
-                <div className="valid-feedback">
-                Looks good!
-                </div>
             </div>
             <div className="col-mb-3">
                 <label htmlFor="validationCustom02" className="form-label">Last name</label>
                 <input type="text" className="form-control" id="validationCustom02" onChange={e => setLName(e.target.value)} value={lName} required></input>
-                <div className="valid-feedback">
-                Looks good!
-                </div>
             </div>
             <div className="col-mb-3">
                 <label htmlFor="validationCustomUsername" className="form-label">Email</label>
                 <div className="input-group has-validation">
                 <span className="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" onChange={e => setEmail(e.target.value)} value={email} required></input>
-                <div className="invalid-feedback">
-                    Please choose a username.
-                </div>
+                <input type="email" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" onChange={e => setEmail(e.target.value)} value={email} required></input>
                 </div>
             </div>
             <div className="col-mb-3">
