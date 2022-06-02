@@ -2,45 +2,10 @@
   "users": [
     {
       "id": 1,
-      "fName": "Bone",
-      "lName": "Jevin",
-      "email": "kekW@gmail.com",
-      "password": "123"
-    },
-    {
-      "id": 2,
-      "fName": "Bon",
-      "lName": "Kevin",
-      "email": "kek1@gmail.com",
-      "password": "qwe"
-    },
-    {
-      "id": 1,
-      "fName": "one",
-      "lName": "evin",
-      "email": "kek@gmail.com",
-      "password": "asd"
-    },
-    {
       "fName": "Bon",
       "lName": "Aguilan",
-      "email": "aguilan@gmail.com",
-      "password": "123",
-      "id": 3
-    },
-    {
-      "fName": "ella",
-      "lName": "alolor",
-      "email": "ella@gmail.com",
-      "password": "123",
-      "id": 4
-    },
-    {
-      "fName": "ella",
-      "lName": "may",
-      "email": "may@gmail.com",
-      "password": "123",
-      "id": 5
+      "email": "bon@gmail.com",
+      "password": "123"
     }
   ]
 }
