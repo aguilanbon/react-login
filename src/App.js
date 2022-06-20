@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Form from './pages/Form';
 import Home from './pages/Home';
+import {Toaster} from 'react-hot-toast'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <Toaster/>
       <BrowserRouter>
         {isLoggedIn === false ? <Form  setIsloggedIn={setIsloggedIn} setCurrentUser={setCurrentUser} userEmail={userEmail} setUserEmail={setUserEmail} userPassword={userPassword} setUserPassword={setUserPassword} /> : ''}
         {isLoggedIn === true ? <Home currentUser={currentUser} setUserEmail={setUserEmail} setUserPassword={setUserPassword} setIsloggedIn={setIsloggedIn}/> : ''}
