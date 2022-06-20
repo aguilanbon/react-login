@@ -1,11 +1,11 @@
 {
   "users": [
     {
-      "id": 1,
-      "fName": "Bon",
-      "lName": "Aguilan",
-      "email": "bon@gmail.com",
-      "password": "123"
+      "fName": "Lebron",
+      "lName": "James",
+      "email": "lbj@gmail.com",
+      "password": "Test123",
+      "id": 2
     }
   ]
 }
